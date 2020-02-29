@@ -305,6 +305,7 @@ paymentMethod.addEventListener('change', () => {
 // If input fields are empty upon submit off form, display message to ask for input before submit and display in different color
 submit.addEventListener("click", (e) => {
     if (name.value == '') {
+        nameLabel.innerHTML = nameLabel.innerHTML.replace("Can only contain letters a-z in lowercase", "Please enter your username");
         name.style.borderColor = "rgb(195, 17, 50)";
         nameLabel.style.display = 'block';
         nameLabel.style.color = "rgb(195, 17, 50)";
@@ -312,74 +313,74 @@ submit.addEventListener("click", (e) => {
         name.focus();
         e.preventDefault();
     if (email.value == '') {
+        emailLabel.innerHTML = emailLabel.innerHTML.replace("Must be a valid email address", "Please enter your email address");
         email.style.borderColor = "rgb(195, 17, 50)";
         emailLabel.style.display = 'block';
         emailLabel.style.color = "rgb(195, 17, 50)";
         emailLabel.style.fontWeight = "bold";
-        email.focus();
         e.preventDefault();
     } else {
         email.style.borderColor = "";
         emailLabel.style.color = "";
         emailLabel.style.fontWeight = "";
     }
-    if (activitiesCheck.checked <= 8) {
-        activitiesCheck.style.borderColor = 'rgba(128,128,128, 0.5)';
+    if (checkboxes.value == '') {
+        checkboxes.style.borderColor = 'rgba(128,128,128, 0.5)';
         activityLabel.style.display = 'block';
         activityLabel.style.color = "rgb(195, 17, 50)";
         activityLabel.style.fontWeight = "bold";
-        activities.focus();
+        e.preventDefault();
     } else {
         activityLabel.style.color = "";
         activityLabel.style.fontWeight = "";
-        e.preventDefault();
     }
     if (creditCardNumber.value == '') {
+        ccLabel.innerHTML = ccLabel.innerHTML.replace("You must enter a valid Credit Card number", "Please enter your Credit Card Number");
         creditCardNumber.style.borderColor = "rgb(195, 17, 50)";
         ccLabel.style.display = 'block';
         ccLabel.style.color = "rgb(195, 17, 50)";
         ccLabel.style.borderColor = "rgb(195, 17, 50)";
         ccLabel.style.fontWeight = "bold";
+        e.preventDefault();
     } else {
         creditCardNumber.borderColor = "";
         ccLabel.style.color = "";
         ccLabel.style.borderColor = "";
         ccLabel.style.fontWeight = "";
-        e.preventDefault();
     }
     if (zip.value == '') {
+        zipLabel.innerHTML = zipLabel.innerHTML.replace("You must enter a valid Zipcode", "Please enter your Zipcode");
         zip.style.borderColor = "rgb(195, 17, 50)";
         zipLabel.style.display = 'block';
         zipLabel.style.color = "rgb(195, 17, 50)";
         zipLabel.style.fontWeight = "bold";
         zipLabel.style.borderColor = "rgb(195, 17, 50)";
+        e.preventDefault();
     } else {
         zip.style.borderColor = "";
         zipLabel.style.color = "";
         zipLabel.style.borderColor = "";
         zipLabel.style.fontWeight = "";
-        e.preventDefault();
         }
     if (cvv.value == '') {
+        cvvLabel.innerHTML = cvvLabel.innerHTML.replace("You must enter a valid cvv number", "Please enter your cvv number");
         cvv.style.borderColor = "rgb(195, 17, 50)";
         cvvLabel.style.display = 'block';
         cvvLabel.style.color = "rgb(195, 17, 50)";
         cvvLabel.style.fontWeight = "bold";
         cvvLabel.style.borderColor = "rgb(195, 17, 50)";
+        e.preventDefault();
     } else {
         cvv.style.borderColor = "";
         cvvLabel.style.color = "";
         cvvLabel.style.borderColor = "";
         cvvLabel.style.fontWeight = "";
-        e.preventDefault();
       }
-    }
-    else if (name.value == '') {
-        name.style.borderColor = "";
-        nameLabel.style.color = "";
-        nameLabel.style.fontWeight = "";
-        nameLabel.style.borderColor = "";
   } else {
+    name.style.borderColor = "";
+    nameLabel.style.color = "";
+    nameLabel.style.fontWeight = "";
+    nameLabel.style.borderColor = "";
     window.open("next.html");
       }
   });

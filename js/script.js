@@ -181,6 +181,7 @@ design.addEventListener('change', () => {
   }
 });
 
+// Event listener for when an event is checked that co-incides with another event held at the same time, that other event will become disabled.
 activities.addEventListener('change', () => {
   if (checkboxes[1].checked) {
       checkboxes[3].parentNode.style.color = 'rgba(128,128,128, 0.5)';

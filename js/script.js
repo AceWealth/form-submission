@@ -387,8 +387,7 @@ submit.addEventListener("click", (e) => {
     nameLabel.style.color = "";
     nameLabel.style.fontWeight = "";
     nameLabel.style.borderColor = "";
+    // Open confirmation page if successfull
+    window.open("next.html");
       }
   });
-
-  // Open confirmation page if successfull
-  window.open("next.html");

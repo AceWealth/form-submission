@@ -329,16 +329,16 @@ submit.addEventListener("click", (e) => {
           activityLength++;
         }
       }
-    if (activityLength === 0) {
-        activities.style.borderColor = "rgb(195, 17, 50)";
-        activityLabel.style.display = 'block';
-        activityLabel.style.color = "rgb(195, 17, 50)";
-        activityLabel.style.fontWeight = "bold";
-        e.preventDefault();
-    } else  {
-        activityLabel.style.display = 'none';
-        activityLabel.style.color = "";
-        activityLabel.style.fontWeight = "";
+      if (activityLength === 0) {
+          activities.style.borderColor = "rgb(195, 17, 50)";
+          activityLabel.style.display = 'block';
+          activityLabel.style.color = "rgb(195, 17, 50)";
+          activityLabel.style.fontWeight = "bold";
+          e.preventDefault();
+          } else  {
+          activityLabel.style.display = 'none';
+          activityLabel.style.color = "";
+          activityLabel.style.fontWeight = "";
         }
     if (creditCardNumber.value == '') {
         ccLabel.innerHTML = ccLabel.innerHTML.replace("You must enter a valid Credit Card number", "Please enter your Credit Card Number");
@@ -383,10 +383,13 @@ submit.addEventListener("click", (e) => {
         cvvLabel.style.fontWeight = "";
       }
   } else {
-      name.style.borderColor = "none";
-      nameLabel.style.color = "";
-      nameLabel.style.fontWeight = "";
-      nameLabel.style.borderColor = "";
-      window.open("next.html");
+    name.style.borderColor = "none";
+    nameLabel.style.color = "";
+    nameLabel.style.fontWeight = "";
+    nameLabel.style.borderColor = "";
+
       }
   });
+
+  // Open confirmation page if successfull
+  window.open("next.html");

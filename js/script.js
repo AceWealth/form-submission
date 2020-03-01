@@ -387,7 +387,6 @@ submit.addEventListener("click", (e) => {
     nameLabel.style.color = "";
     nameLabel.style.fontWeight = "";
     nameLabel.style.borderColor = "";
-
       }
   });
 

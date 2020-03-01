@@ -54,7 +54,7 @@ a {
 form {
 	padding: .875em 1.875em 1.875em;
 	background:#99CED3;
-	border: 2px solid rgba(8, 63, 87, 0.6);
+	border: 8px solid rgba(8, 63, 87, 0.6);
 	border-radius: 3px;
 }
 

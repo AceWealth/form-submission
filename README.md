@@ -2,7 +2,7 @@
 
 
 <h3><b><p align="center">Click to see live Form Submission!!</p></b></h3>
-<a href=http://www.submissionform.sarahshelley.x10host.com/ target="blank"><img src="https://github.com/sargef/form-submission/blob/master/pictures/form.JPG"></a>
+<a href=http://www.submissionform.sarahshelley.x10host.com/ target="_blank"><img src="https://github.com/sargef/form-submission/blob/master/pictures/form.JPG"></a>
 
 <h2><b><p align="center">Form Submission using Javascript</p></b></h2>
 

@@ -18,8 +18,6 @@ const hearts = document.getElementById('hearts'); // Designate a group for heart
 
 //Variables to construct checkbox elements
 const activities = document.querySelector('.activities'); // Variable to grab activities list to add total price on selected activities
-const activitiesCheck = document.querySelector('.activities').children;
-console.log(activitiesCheck);
 const checkboxes = document.querySelectorAll('input[type=checkbox]'); // Grab checkboxes from activity list
 let total = 0; // Set totals for event purchase to none
 const totalHolder = document.createElement('div'); // Create placeholder for event cost totals display
@@ -85,7 +83,7 @@ zipLabel.style.display = 'none';
 
 // Creat e a span element to hold Credit Card cvv number invalid message. Set to not display unless invalid
 cvvLabel = document.createElement('span');
-cvvShow = document.createTextNode("You must enter a valid ccv number");
+cvvShow = document.createTextNode("You must enter a valid cvv number");
 cvvLabel.style.color = 'rgb(195, 17, 50)';
 cvvLabel.appendChild(cvvShow);
 cvv.after(cvvLabel);
@@ -108,7 +106,7 @@ const isValidEmail = (mail) => {
 
 // Function to check regex value of creditcard number for validation
 const isValidCreditCard = (creditCardNumber) => {
-  return /^[0-9]{13}(?:-[0-9]{12})?$/.test(creditCardNumber);
+  return /^[0-9]{13,16}(?:-[0-9]{12})?$/.test(creditCardNumber);
 };
 
 //function to check credit card cvv number for validation
@@ -324,16 +322,23 @@ submit.addEventListener("click", (e) => {
         emailLabel.style.color = "";
         emailLabel.style.fontWeight = "";
     }
-    if (checkboxes.value == '') {
-        checkboxes.style.borderColor = 'rgba(128,128,128, 0.5)';
+    let activityLength = 0;
+      for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked){
+          activityLength++;
+        }
+      }
+    if (activityLength === 0) {
+        activities.style.borderColor = "rgb(195, 17, 50)";
         activityLabel.style.display = 'block';
         activityLabel.style.color = "rgb(195, 17, 50)";
         activityLabel.style.fontWeight = "bold";
         e.preventDefault();
-    } else {
+    } else  {
+        activityLabel.style.display = 'none';
         activityLabel.style.color = "";
         activityLabel.style.fontWeight = "";
-    }
+        }
     if (creditCardNumber.value == '') {
         ccLabel.innerHTML = ccLabel.innerHTML.replace("You must enter a valid Credit Card number", "Please enter your Credit Card Number");
         creditCardNumber.style.borderColor = "rgb(195, 17, 50)";
@@ -377,10 +382,10 @@ submit.addEventListener("click", (e) => {
         cvvLabel.style.fontWeight = "";
       }
   } else {
-    name.style.borderColor = "";
-    nameLabel.style.color = "";
-    nameLabel.style.fontWeight = "";
-    nameLabel.style.borderColor = "";
-    window.open("next.html");
+      name.style.borderColor = "none";
+      nameLabel.style.color = "";
+      nameLabel.style.fontWeight = "";
+      nameLabel.style.borderColor = "";
+      window.open("next.html");
       }
   });

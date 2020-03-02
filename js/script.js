@@ -9,7 +9,7 @@ otherTextBox.style.display = 'none'; // Set textbox to not show until called
 const other = document.getElementById('title'); // Grab job titles
 // console.log(other);
 
-//Variabled to construct t-shirt elements
+//Variables to construct t-shirt elements
 const design = document.getElementById('design'); // Grab t-shirt design choices inputbox
 const designColor = document.getElementById('color'); // Grab t-shirt color choices inputbox
 designColor.style.display = 'none'; // Set t-shirt color selection to hidden as default
@@ -46,7 +46,7 @@ nameLabel.appendChild(nameShow);
 name.after(nameLabel);
 nameLabel.style.display = 'none';
 
-// Creat a span element to hold email invalid message, set to not display unless email invalid
+// Create a span element to hold email invalid message, set to not display unless email invalid
 emailLabel = document.createElement('span');
 emailShow = document.createTextNode("Must be a valid email address");
 emailLabel.style.color = 'rgb(195, 17, 50)';
@@ -62,7 +62,7 @@ activityLabel.appendChild(activityShow);
 activities.after(activityLabel);
 activityLabel.style.display = 'none';
 
-// Creat e a span element to hold Credit Card number invalid message. Set to not display unless invalid
+// Create a span element to hold Credit Card number invalid message. Set to not display unless invalid
 ccLabel = document.createElement('span');
 ccShow = document.createTextNode("You must enter a valid Credit Card number");
 ccLabel.style.color = 'rgb(195, 17, 50)';
@@ -70,7 +70,7 @@ ccLabel.appendChild(ccShow);
 creditCardNumber.after(ccLabel);
 ccLabel.style.display = 'none';
 
-// Creat a span element to hold zip code invalid message, set to not display unless zipcode invalid
+// Create a span element to hold zip code invalid message, set to not display unless zipcode invalid
 zipLabel = document.createElement('span');
 zipShow = document.createTextNode("You must enter a valid Zipcode");
 zipLabel.style.color = 'rgb(195, 17, 50)';
@@ -78,7 +78,7 @@ zipLabel.appendChild(zipShow);
 zip.after(zipLabel);
 zipLabel.style.display = 'none';
 
-// Creat e a span element to hold Credit Card cvv number invalid message. Set to not display unless invalid
+// Create a span element to hold Credit Card cvv number invalid message. Set to not display unless invalid
 cvvLabel = document.createElement('span');
 cvvShow = document.createTextNode("You must enter a valid cvv number");
 cvvLabel.style.color = 'rgb(195, 17, 50)';

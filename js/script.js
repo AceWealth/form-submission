@@ -219,9 +219,9 @@ const parsedNum = parseInt(clickedCost, 10);
 if (clicked.checked) {
   total += parsedNum;
 } else if (!clicked.checked) {
-  total = 0;
-} else {
   total -= parsedNum;
+} else {
+  total = 0;
 }
   activities.appendChild(totalHolder);
   totalInnerHTML.innerHTML = `Your total is $${total} `;

@@ -9,7 +9,7 @@ otherTextBox.style.display = 'none'; // Set textbox to not show until called
 const other = document.getElementById('title'); // Grab job titles
 // console.log(other);
 
-//Variables to construct t-shirt elements
+//Variabled to construct t-shirt elements
 const design = document.getElementById('design'); // Grab t-shirt design choices inputbox
 const designColor = document.getElementById('color'); // Grab t-shirt color choices inputbox
 designColor.style.display = 'none'; // Set t-shirt color selection to hidden as default
@@ -38,6 +38,9 @@ const bitcoin = document.getElementById('bitcoin'); // Bitcoin details for payme
 // Variables for submit form validation
 const submit = document.querySelector('button[type="submit"]');
 
+// console.log(date);
+// console.log(creditCard);
+
 // Create span element to hold username invalid message, set to not display unless username invalid
 nameLabel = document.createElement('span');
 nameShow = document.createTextNode("Can only contain letters a-z in lowercase");
@@ -46,7 +49,7 @@ nameLabel.appendChild(nameShow);
 name.after(nameLabel);
 nameLabel.style.display = 'none';
 
-// Create a span element to hold email invalid message, set to not display unless email invalid
+// Creat a span element to hold email invalid message, set to not display unless email invalid
 emailLabel = document.createElement('span');
 emailShow = document.createTextNode("Must be a valid email address");
 emailLabel.style.color = 'rgb(195, 17, 50)';
@@ -56,13 +59,13 @@ emailLabel.style.display = 'none';
 
 // Create a span element to hold activites error message if submitted without selecting atleast 1 activity
 activityLabel = document.createElement('span');
-activityShow = document.createTextNode("You must enter atleast 1 activity");
+activityShow = document.createTextNode("You must enter at least 1 activity");
 activityLabel.style.color = 'rgb(195, 17, 50)';
 activityLabel.appendChild(activityShow);
 activities.after(activityLabel);
 activityLabel.style.display = 'none';
 
-// Create a span element to hold Credit Card number invalid message. Set to not display unless invalid
+// Creat e a span element to hold Credit Card number invalid message. Set to not display unless invalid
 ccLabel = document.createElement('span');
 ccShow = document.createTextNode("You must enter a valid Credit Card number");
 ccLabel.style.color = 'rgb(195, 17, 50)';
@@ -70,7 +73,7 @@ ccLabel.appendChild(ccShow);
 creditCardNumber.after(ccLabel);
 ccLabel.style.display = 'none';
 
-// Create a span element to hold zip code invalid message, set to not display unless zipcode invalid
+// Creat a span element to hold zip code invalid message, set to not display unless zipcode invalid
 zipLabel = document.createElement('span');
 zipShow = document.createTextNode("You must enter a valid Zipcode");
 zipLabel.style.color = 'rgb(195, 17, 50)';
@@ -78,7 +81,7 @@ zipLabel.appendChild(zipShow);
 zip.after(zipLabel);
 zipLabel.style.display = 'none';
 
-// Create a span element to hold Credit Card cvv number invalid message. Set to not display unless invalid
+// Creat e a span element to hold Credit Card cvv number invalid message. Set to not display unless invalid
 cvvLabel = document.createElement('span');
 cvvShow = document.createTextNode("You must enter a valid cvv number");
 cvvLabel.style.color = 'rgb(195, 17, 50)';
@@ -211,67 +214,20 @@ activities.addEventListener('change', () => {
 });
 
 // Function to add up the cost of event selected totals
-const addUpCost = (cost) => {
-  total += cost;
+activities.addEventListener('change', (e) => {
+const clicked = e.target;
+const clickedCost = clicked.getAttribute("data-cost");
+const parsedNum = parseInt(clickedCost, 10);
+// Function to add up the cost of event selected totals
+if (clicked.checked) {
+  total += parsedNum;
+} else if (!clicked.checked) {
+  total = 0;
+} else {
+  total -= parsedNum;
+}
   activities.appendChild(totalHolder);
   totalInnerHTML.innerHTML = `Your total is $${total} `;
-}
-
-// Event listener for adding up total for each event selected and subtracting cost if unselected
-const all = document.querySelector('input[name=all]').addEventListener('change', () => {
-  if (checkboxes[0].checked) {
-    addUpCost(200);
-  } else {
-    addUpCost(-200);
-  }
-});
-
-const jsFrameworks = document.querySelector('input[name=js-frameworks]').addEventListener('change', () => {
-  if (checkboxes[1].checked) {
-    addUpCost(100);
-  } else {
-    addUpCost(-100);
-  }
-});
-
-const jsLibs = document.querySelector('input[name=js-libs]').addEventListener('change', () => {
-  if (checkboxes[2].checked) {
-    addUpCost(100);
-  } else {
-    addUpCost(-100);
-  }
-});
-
-const express = document.querySelector('input[name=express]').addEventListener('change', () => {
-  if (checkboxes[3].checked) {
-    addUpCost(100);
-  } else {
-    addUpCost(-100);
-  }
-});
-
-const node = document.querySelector('input[name=node]').addEventListener('change', () => {
-  if (checkboxes[4].checked) {
-    addUpCost(100);
-  } else {
-    addUpCost(-100);
-  }
-});
-
-const buildTools = document.querySelector('input[name=build-tools]').addEventListener('change', () => {
-  if (checkboxes[5].checked) {
-    addUpCost(100);
-  } else {
-    addUpCost(-100);
-  }
-});
-
-const npm = document.querySelector('input[name=npm]').addEventListener('change', () => {
-  if (checkboxes[6].checked) {
-    addUpCost(100);
-  } else {
-    addUpCost(-100);
-  }
 });
 
 /*

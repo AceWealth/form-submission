@@ -38,9 +38,6 @@ const bitcoin = document.getElementById('bitcoin'); // Bitcoin details for payme
 // Variables for submit form validation
 const submit = document.querySelector('button[type="submit"]');
 
-// console.log(date);
-// console.log(creditCard);
-
 // Create span element to hold username invalid message, set to not display unless username invalid
 nameLabel = document.createElement('span');
 nameShow = document.createTextNode("Can only contain letters a-z in lowercase");

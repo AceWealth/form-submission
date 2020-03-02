@@ -2,7 +2,7 @@
 // Global variables
 const name = document.getElementById('name'); // Grab name location
 name.focus(); // Set focus on name location
-const email = document.getElementById('mail');
+const email = document.getElementById('mail'); // Grab email location
 
 const otherTextBox = document.getElementById('other-title'); // Select textbox for Other display
 otherTextBox.style.display = 'none'; // Set textbox to not show until called
@@ -178,42 +178,12 @@ design.addEventListener('change', () => {
   }
 });
 
-// Event listener for when an event is checked that co-incides with another event held at the same time, that other event will become disabled.
-activities.addEventListener('change', () => {
-  if (checkboxes[1].checked) {
-      checkboxes[3].parentNode.style.color = 'rgba(128,128,128, 0.5)';
-      checkboxes[3].disabled = true;
-  } else {
-    checkboxes[3].disabled = false;
-    checkboxes[3].parentNode.style.color = 'rgba(0,0,0,1)';
-  }
-  if (checkboxes[2].checked) {
-      checkboxes[4].parentNode.style.color = 'rgba(128,128,128, 0.5)';
-      checkboxes[4].disabled = true;
-  } else {
-    checkboxes[4].disabled = false;
-    checkboxes[4].parentNode.style.color = 'rgba(0,0,0,1)';
-  }
-  if (checkboxes[3].checked) {
-      checkboxes[5].disabled = true;
-      checkboxes[5].parentNode.style.color = 'rgba(128,128,128, 0.5)';
-  } else {
-      checkboxes[5].disabled = false;
-      checkboxes[5].parentNode.style.color = 'rgba(0,0,0,1)';
-  }
-  if (checkboxes[4].checked) {
-      checkboxes[2].disabled = true;
-      checkboxes[2].parentNode.style.color = 'rgba(128,128,128, 0.5)';
-  } else {
-    checkboxes[2].disabled = false;
-    checkboxes[2].parentNode.style.color = 'rgba(0,0,0,1)';
-  }
-});
-
 // Function to add up the cost of event selected totals
 activities.addEventListener('change', (e) => {
 const clicked = e.target;
+const clickedDayAndTime = clicked.getAttribute("data-day-and-time");
 const clickedCost = clicked.getAttribute("data-cost");
+const clickedName = clicked.getAttribute("name");
 const parsedNum = parseInt(clickedCost, 10);
 // Function to add up the cost of event selected totals
 if (clicked.checked) {
@@ -225,6 +195,26 @@ if (clicked.checked) {
 }
   activities.appendChild(totalHolder);
   totalInnerHTML.innerHTML = `Your total is $${total} `;
+
+// Event listener for when an event is checked that co-incides with another event held at the same time, that other event will become disabled.
+for (var i = 0; i < checkboxes.length; i++) {
+  const eventDayAndTime = checkboxes[i].getAttribute(
+    "data-day-and-time"
+  );
+  const name = checkboxes[i].getAttribute("name");
+  if (clicked.checked) {
+    if (clickedDayAndTime === eventDayAndTime && clickedName !== name) {
+      checkboxes[i].disabled = true;
+      checkboxes[i].parentNode.style.color = 'rgba(128,128,128, 0.5)';
+      if (checkboxes[i].disabled && clicked.checked) {
+        checkboxes[i].total = 0;
+      }
+    }
+  } else {
+     checkboxes[i].disabled = false;
+     checkboxes[i].parentNode.style.color = 'rgba(0,0,0,1)';
+    }
+  }
 });
 
 /*

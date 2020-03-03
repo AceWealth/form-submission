@@ -120,8 +120,10 @@ const isValidZip = (zip) => {
 const showOrHideTip = (show, element) => {
   if (show) {
     element.style.display = "inherit";
+    submit.disabled = true;
   } else {
     element.style.display = "none";
+    submit.disabled = false;
   }
 };
 
@@ -328,6 +330,7 @@ submit.addEventListener("click", (e) => {
     nameLabel.style.fontWeight = "";
     nameLabel.style.borderColor = "";
     // Open confirmation page if successfull
+    submit.disabled = false;
     window.open("next.html");
       }
   });
